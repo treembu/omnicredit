@@ -33,7 +33,7 @@ DISCOUNTS = {
 }
 
 def monthly_cost(rate: float, min_fee: float, loans: int, disc: float) -> float:
-    return max(rate * laons, min_fee) * (1 - disc)
+    return max(rate * loans, min_fee) * (1 - disc)
     
 def active_tier(loans: int) -> str:
     if loans < 625:
@@ -78,7 +78,7 @@ if disc > 0:
         saving = base * 12 - base * (1 - disc) * 12
         st.success(
             f"💰 At your current loan count, paying {'6-monthly' if disc == 0.06 else 'annually'} "
-            f"saves you **${saving:,.0f}/year** (${saving/12:,.0f}/month) on the {tier_name} plan."
+            f"saves you **\${saving:,.0f}/year** (\${saving/12:,.0f}/month) on the {tier_name} plan."
         )
 
 st.divider()
@@ -111,7 +111,7 @@ for col, (name, t) in zip(cols, TIERS.items()):
                 # st.caption(f"${t['rate']:.2f} per active loan - min ${t['min_fee']:,}/mo")
                 
                 if annual_saving > 0:
-                    st.success(f"Save ${annual_saving:,.0f}/yr")
+                    st.success(f"Save \${annual_saving:,.0f}/yr")
                     st.markdown(
                         f"<h2 style='margin:0;'>${discounted:,.0f} "
                         f"<span style='font-size:16px; color:#888;text-decoration:line-through;'>"
@@ -119,10 +119,10 @@ for col, (name, t) in zip(cols, TIERS.items()):
                         unsafe_allow_html=True,
                     )
                 else:
-                    st.markdown(f"## ${discounted:,.0f} /mo")
+                    st.markdown(f"## \\${discounted:,.0f} /mo")
                     
-                st.caption(f"${t['rate']:.2f} per active loan \xb7 min ${t['min_fee']:,}/mo")    
-                st.markdown(f"*~ ${annual:,.0f} billed annually*")
+                st.caption(f"\\${t['rate']:.2f} per active loan \xb7 min \\${t['min_fee']:,}/mo")   
+                st.markdown(f"*~ \\${annual:,.0f} billed annually*")
                 st.markdown(" ")
 
                 st.button(
@@ -156,8 +156,8 @@ if tier_name != "Enterprise":
         with col:
             st.metric(
                 label=label,
-                value=f"${effective:,.0f} /mo",
-                delta=f"Save ${saving:,.0f}/yr" if saving > 0 else "Standard rate",
+                value=f"\${effective:,.0f} /mo",
+                delta=f"Save \${saving:,.0f}/yr" if saving > 0 else "Standard rate",
                 delta_color="normal" if saving > 0 else "off",
             )
 else:
