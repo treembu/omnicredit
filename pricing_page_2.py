@@ -121,16 +121,16 @@ for col, (name, t) in zip(cols, TIERS.items()):
                 else:
                     st.markdown(f"## ${discounted:,.0f} /mo")
                     
-                st.caption(f"${t['rate']:.2f} per active loan \xb7 min ${t['min_fee']:,}/mo")    
-                st.markdown(f"*~ ${annual:,.0f} billed annually*")
-                st.markdown(" ")
+                    st.caption(f"${t['rate']:.2f} per active loan \xb7 min ${t['min_fee']:,}/mo")    
+                    st.markdown(f"*~ ${annual:,.0f} billed annually*")
+                    st.markdown(" ")
 
-                st.button(
-                    "Get started \u2192",
-                    key=f"cta_{name}",
-                    use_container_width=True,
-                    type="primary" if is_active else "secondary",
-                )
+                    st.button(
+                        "Get started \u2192",
+                        key=f"cta_{name}",
+                        use_container_width=True,
+                        type="primary" if is_active else "secondary",
+                    )
             
             else:
                 st.markdown("## Custom")
