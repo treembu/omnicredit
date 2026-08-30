@@ -93,7 +93,7 @@ for col, (name, t) in zip(cols, TIERS.items()):
                 annual_saving = base_monthly * 12 - annual
                 
                 st.markdown(f"## ${discounted:,.0f} /mo")
-                st.caption(f"${t['rate']:.2f} per active loan - min ${t['min_fee']:,}/mo")
+                st.caption(f"\\${t['rate']:.2f} per active loan - min \\${t['min_fee']:,}/mo")
                 
                 if annual_saving > 0:
                     st.success(f"You save ${annual_saving:,.0f}/yr on this plan")
